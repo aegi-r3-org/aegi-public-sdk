@@ -1,2 +1,6 @@
-# aegi-public-sdk
-AEGI Open Source SDK &amp; Community Examples (Public)
+# AEGI Public SDK
+
+Community SDK and integration examples for AEGI sandbox APIs.
+
+## Quickstart
+See `examples/` or open an issue for questions.
