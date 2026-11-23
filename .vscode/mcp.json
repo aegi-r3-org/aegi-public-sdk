@@ -1,0 +1,16 @@
+{
+  "servers": {
+    "github-internal": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${input:github_internal_pat}",
+        "GITHUB_ALLOWED_ORGS": "aegi-r3-org",
+        "GITHUB_DEFAULT_REPOS": "aegi-r3-org/platform-docs,aegi-r3-org/customer-api"
+      }
+    }
+  }
+}
