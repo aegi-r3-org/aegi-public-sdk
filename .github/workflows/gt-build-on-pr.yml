@@ -1,0 +1,21 @@
+name: GT build on PR
+on:
+  pull_request_target:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Load secrets from 1Password
+        id: load_secrets
+        uses: 1password/load-secrets-action@v5
+        with:
+          export-env: false
+        env:
+          SYNTH: op://GT Fork Test/synthetic-secret/password
+      - name: Build
+        run: bash ./gt-build.sh
